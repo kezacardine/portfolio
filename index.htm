@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardine Keza - Creative Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#faf5ff",
+                100: "#f3e8ff",
+                500: "#a855f7",
+                600: "#9333ea",
+                700: "#7c3aed",
+                900: "#581c87",
+              },
+              accent: {
+                500: "#06b6d4",
+                600: "#0891b2",
+              },
+            },
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+              space: ["Space Grotesk", "sans-serif"],
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "float-delayed": "float 6s ease-in-out infinite 2s",
+              "gradient-shift": "gradient-shift 8s ease infinite",
+              "pulse-glow": "pulse-glow 2s ease-in-out infinite alternate",
+              "slide-in-left": "slide-in-left 0.8s ease-out",
+              "slide-in-right": "slide-in-right 0.8s ease-out",
+              "fade-in-up": "fade-in-up 0.8s ease-out",
+              "scale-in": "scale-in 0.8s ease-out",
+              "text-glow": "text-glow 2s ease-in-out infinite alternate",
+              morph: "morph 8s ease-in-out infinite",
+              "particle-float": "particle-float 20s linear infinite",
+            },
+            backdropBlur: {
+              xs: "2px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+      /* Custom Animations */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-20px) rotate(1deg);
+        }
+        66% {
+          transform: translateY(-10px) rotate(-1deg);
+        }
+      }
+
+      @keyframes gradient-shift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes pulse-glow {
+        0% {
+          box-shadow: 0 0 5px rgba(168, 85, 247, 0.4);
+        }
+        100% {
+          box-shadow: 0 0 20px rgba(168, 85, 247, 0.8),
+            0 0 30px rgba(168, 85, 247, 0.4);
+        }
+      }
+
+      @keyframes slide-in-left {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slide-in-right {
+        0% {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade-in-up {
+        0% {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes scale-in {
+        0% {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes text-glow {
+        0% {
+          text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+        }
+        100% {
+          text-shadow: 0 0 20px rgba(168, 85, 247, 0.8),
+            0 0 30px rgba(168, 85, 247, 0.4);
+        }
+      }
+
+      @keyframes morph {
+        0%,
+        100% {
+          border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        25% {
+          border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        }
+        50% {
+          border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+        }
+        75% {
+          border-radius: 60% 40% 60% 30% / 70% 30% 60% 70%;
+        }
+      }
+
+      @keyframes particle-float {
+        0% {
+          transform: translateY(100vh) translateX(-10px) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) translateX(10px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Gradient Backgrounds */
+      .gradient-primary {
+        background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+        background-size: 300% 300%;
+        animation: gradient-shift 8s ease infinite;
+      }
+
+      .gradient-mesh {
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(168, 85, 247, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(6, 182, 212, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 80%,
+            rgba(168, 85, 247, 0.2) 0%,
+            transparent 50%
+          );
+      }
+
+      .glass-morphism {
+        backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .dark .glass-morphism {
+        background-color: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #a855f7, #06b6d4);
+        border-radius: 4px;
+      }
+
+      /* Particle System */
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: linear-gradient(135deg, #a855f7, #06b6d4);
+        border-radius: 50%;
+        animation: particle-float 20s linear infinite;
+      }
+
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 20%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(3) {
+        left: 30%;
+        animation-delay: 8s;
+      }
+      .particle:nth-child(4) {
+        left: 40%;
+        animation-delay: 12s;
+      }
+      .particle:nth-child(5) {
+        left: 50%;
+        animation-delay: 16s;
+      }
+      .particle:nth-child(6) {
+        left: 60%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(7) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(8) {
+        left: 80%;
+        animation-delay: 10s;
+      }
+      .particle:nth-child(9) {
+        left: 90%;
+        animation-delay: 14s;
+      }
+
+      /* Hover Effects */
+      .hover-lift {
+        transition: all 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .hover-glow {
+        transition: all 0.3s ease;
+      }
+      .hover-glow:hover {
+        box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+        transform: scale(1.05);
+      }
+
+      /* Text Effects */
+      .text-gradient {
+        background: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .text-glitch {
+        position: relative;
+      }
+      .text-glitch::before,
+      .text-glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .text-glitch::before {
+        animation: glitch-1 0.5s infinite;
+        color: #a855f7;
+        z-index: -1;
+      }
+      .text-glitch::after {
+        animation: glitch-2 0.5s infinite;
+        color: #06b6d4;
+        z-index: -2;
+      }
+
+      @keyframes glitch-1 {
+        0%,
+        14%,
+        15%,
+        49%,
+        50%,
+        99%,
+        100% {
+          transform: translate(0);
+        }
+        15%,
+        49% {
+          transform: translate(-2px, 2px);
+        }
+      }
+
+      @keyframes glitch-2 {
+        0%,
+        20%,
+        21%,
+        62%,
+        63%,
+        99%,
+        100% {
+          transform: translate(0);
+        }
+        21%,
+        62% {
+          transform: translate(2px, -2px);
+        }
+      }
+
+      /* Mobile Optimizations */
+      @media (max-width: 768px) {
+        .particle {
+          display: none;
+        }
+        .animate-float,
+        .animate-float-delayed {
+          animation-duration: 4s;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="font-inter bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 overflow-x-hidden"
+  >
+    <!-- Particle Background -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full z-50 glass-morphism transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex-shrink-0">
+            <a href="#home" class="text-2xl font-bold text-gradient font-space">
+              CARDINE KEZA IMPANO KIBONDO
+            </a>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+              >About</a
+            >
+            <a
+              href="#projects"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+              >Projects</a
+            >
+            <a
+              href="#skills"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+              >Skills</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+              >Contact</a
+            >
+
+            <button
+              id="theme-toggle"
+              class="p-2 rounded-full hover:bg-purple-100 dark:hover:bg-purple-900 transition-colors duration-300"
+            >
+              <i class="fas fa-moon dark:hidden text-lg"></i>
+              <i class="fas fa-sun hidden dark:inline text-lg"></i>
+            </button>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="p-2 rounded-md hover:bg-purple-100 dark:hover:bg-purple-900 transition-colors duration-300"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden glass-morphism">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="#home"
+            class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+            >Skills</a
+          >
+          <a
+            href="#contact"
+            class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-purple-500 transition-colors duration-300"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center relative overflow-hidden gradient-mesh"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-cyan-500/20"
+      ></div>
+
+      <!-- Floating Geometric Shapes -->
+      <div
+        class="absolute top-20 left-10 w-20 h-20 bg-purple-500/20 rounded-full animate-float"
+      ></div>
+      <div
+        class="absolute top-40 right-20 w-16 h-16 bg-cyan-500/20 transform rotate-45 animate-float-delayed"
+      ></div>
+      <div
+        class="absolute bottom-40 left-20 w-12 h-12 bg-purple-500/30 rounded-full animate-float"
+      ></div>
+      <div
+        class="absolute bottom-20 right-40 w-24 h-24 bg-cyan-500/20 transform rotate-12 animate-float-delayed"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Hero Content -->
+          <div class="text-center lg:text-left animate-slide-in-left">
+            <h1
+              class="text-5xl sm:text-6xl lg:text-7xl font-bold font-space leading-tight mb-6"
+            >
+              <span class="block">Hi, I'm</span>
+              <span
+                class="block text-gradient animate-text-glow"
+                data-text="Alex Johnson"
+                >CARDINE KEZA IMPANO KIBONDO</span
+              >
+            </h1>
+
+            <p
+              class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl animate-fade-in-up"
+            >
+              I create user-centered solutions by combining data analytics, design expertise, and modern technologies — turning complex ideas into intuitive digital experiences.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-scale-in"
+            >
+              <a
+              
+              href="#projects"
+                class="gradient-primary text-white px-8 py-4 rounded-full font-semibold hover-lift hover:scale-105 transition-all duration-300"
+              >
+                View My Work
+              
+          </a>
+              <a
+                href="CV Cardine Impano.pdf"
+                download
+                class="border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white px-8 py-4 rounded-full font-semibold transition-all duration-300"
+              >
+                Download CV
+              </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex gap-4 justify-center lg:justify-start mt-8">
+              <a
+                href="https://www.linkedin.com/in/cardine-keza-1168aa329"
+                class="w-12 h-12 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-linkedin text-purple-500"></i>
+              </a>
+              <a
+                href="https://github.com/kezacardine/cardine-Kibondo"
+                class="w-12 h-12 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-github text-purple-500"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Illustration -->
+          <div
+            class="flex justify-center lg:justify-end animate-slide-in-right"
+          >
+            <div class="relative">
+              <!-- Main Avatar -->
+              <div class="relative z-10 w-80 h-80 lg:w-96 lg:h-96">
+                <div
+                  class="w-full h-full gradient-primary rounded-full animate-morph flex items-center justify-center"
+                >
+                  <div
+                    class="w-64 h-64 lg:w-80 lg:h-80 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden"
+                  >
+                    
+                    <img
+                      src="./WhatsApp Image 2025-09-14 at 20.29.20_193bcafb.jpg"
+                      alt="Alex Johnson - Professional Portrait"
+                      class="w-full h-full object-cover rounded-full hover:scale-110 transition-transform duration-500"
+                      onError="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                    <!-- Fallback icon if image fails to load -->
+                    <div
+                      class="w-full h-full flex items-center justify-center"
+                      style="display: none"
+                    >
+                      <i
+                        class="fas fa-user text-6xl lg:text-8xl text-purple-500"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Elements -->
+              <div
+                class="absolute -top-4 -right-4 w-16 h-16 bg-cyan-500 rounded-lg animate-float flex items-center justify-center"
+              >
+                <i class="fas fa-code text-white text-xl"></i>
+              </div>
+              <div
+                class="absolute -bottom-4 -left-4 w-20 h-20 bg-purple-500 rounded-xl animate-float-delayed flex items-center justify-center"
+              >
+                <i class="fas fa-palette text-white text-xl"></i>
+              </div>
+              <div
+                class="absolute top-1/2 -right-8 w-12 h-12 bg-pink-500 rounded-full animate-float flex items-center justify-center"
+              >
+                <i class="fas fa-lightbulb text-white"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <i class="fas fa-chevron-down text-2xl text-purple-500"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 lg:py-32 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl lg:text-6xl font-bold font-space text-gradient mb-4"
+          >
+            About Me
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Passionate about creating digital magic
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <!-- About Content -->
+          <div class="space-y-6">
+            <h3 class="text-3xl font-bold text-purple-500 mb-6">
+              Creative Problem Solver
+            </h3>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              I’m a full-stack developer, data analytics enthusiast, and UI/UX designer who thrives on creating digital experiences that are both functional and visually engaging. With over five years of experience, I specialize in modern web technologies, user-centered design, and leveraging data-driven insights to guide smarter design and development decisions.
+            </p>
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              By combining analytics with creativity, I design interfaces that don’t just look good but also respond to real user behavior and performance trends. My approach balances aesthetics with functionality, ensuring every solution is grounded in both usability and measurable outcomes. Outside of work, I enjoy exploring design trends, experimenting with new technologies, and capturing stories through photography.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 mt-12">
+              <div class="text-center">
+                <div class="text-4xl font-bold text-gradient mb-2">5+</div>
+                <div class="text-gray-600 dark:text-gray-400">Projects</div>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl font-bold text-gradient mb-2">2+</div>
+                <div class="text-gray-600 dark:text-gray-400">Years</div>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl font-bold text-gradient mb-2">100%</div>
+                <div class="text-gray-600 dark:text-gray-400">Targets Hit</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills Illustration -->
+          <div class="flex justify-center">
+            <div class="relative">
+              <!-- Central Circle -->
+              <div
+                class="w-64 h-64 gradient-primary rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-brain text-6xl text-white"></i>
+              </div>
+
+              <!-- Orbiting Skills -->
+              <div
+                class="absolute inset-0 animate-spin"
+                style="animation-duration: 20s"
+              >
+                <div
+                  class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center"
+                >
+                  <i class="fab fa-react text-cyan-500 text-xl"></i>
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 animate-spin"
+                style="animation-duration: 25s; animation-direction: reverse"
+              >
+                <div
+                  class="absolute top-1/2 -right-8 transform -translate-y-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center"
+                >
+                  <i class="fab fa-node-js text-green-500 text-xl"></i>
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 animate-spin"
+                style="animation-duration: 30s"
+              >
+                <div
+                  class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center"
+                >
+                  <i class="fab fa-figma text-purple-500 text-xl"></i>
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 animate-spin"
+                style="animation-duration: 35s; animation-direction: reverse"
+              >
+                <div
+                  class="absolute top-1/2 -left-8 transform -translate-y-1/2 w-16 h-16 bg-white dark:bg-gray-800 rounded-full shadow-lg flex items-center justify-center"
+                >
+                  <i class="fab fa-python text-yellow-500 text-xl"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section
+      id="projects"
+      class="py-20 lg:py-32 bg-gray-100 dark:bg-gray-800 relative"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl lg:text-6xl font-bold font-space text-gradient mb-4"
+          >
+            Featured Projects
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Showcasing my latest work and experiments
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="group bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-xl hover-lift"
+          >
+            <div
+              class="h-48 gradient-primary flex items-center justify-center relative overflow-hidden"
+            >
+              <i
+                class="fas fa-shopping-cart text-6xl text-white group-hover:scale-110 transition-transform duration-300"
+              ></i>
+              <div
+                class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-4">GuestHouse Managament System</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-6">
+                A modern guesthouse-management solution with java language, hibernate, and advanced
+                animations.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-sm"
+                  >Java</span
+                >
+                <span
+                  class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-600 dark:text-cyan-300 rounded-full text-sm"
+                  >JPA/Hibernate</span
+                >
+                <span
+                  class="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-600 dark:text-pink-300 rounded-full text-sm"
+                  >Spring Boot</span
+                >
+              </div>
+              <div class="flex gap-4">
+                <a
+                  href="https://github.com/kezacardine/guesthouse-management-system"
+                  class="text-purple-500 hover:text-purple-600 font-medium transition-colors duration-300"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i>GitHub
+                </a>
+                <a
+                  href="https://github.com/kezacardine/guesthouse-management-system"
+                  class="text-purple-500 hover:text-purple-600 font-medium transition-colors duration-300"
+                >
+                  <i class="fab fa-github mr-2"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="group bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-xl hover-lift"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center relative overflow-hidden"
+            >
+              <i
+                class="fas fa-mobile-alt text-6xl text-white group-hover:scale-110 transition-transform duration-300"
+              ></i>
+              <div
+                class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-4">My Portfolio</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-6">
+                A modern, responsive portfolio website built with React and Tailwind CSS to showcase my projects and skills.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-sm"
+                  >HTML</span
+                >
+                <span
+                  class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-600 dark:text-cyan-300 rounded-full text-sm"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-600 dark:text-pink-300 rounded-full text-sm"
+                  >css</span
+                >
+              </div>
+              <div class="flex gap-4">
+                <a
+                  href="https://github.com/kezacardine/my-portfolio"
+                  class="text-purple-500 hover:text-purple-600 font-medium transition-colors duration-300"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i>GitHub
+                </a>
+                <a
+                  href="https://github.com/kezacardine/my-portfolio"
+                  class="text-purple-500 hover:text-purple-600 font-medium transition-colors duration-300"
+                >
+                  <i class="fab fa-figma mr-2"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="group bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-xl hover-lift"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center relative overflow-hidden"
+            >
+              <i
+                class="fas fa-chart-line text-6xl text-white group-hover:scale-110 transition-transform duration-300"
+              ></i>
+              <div
+                class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+            </div>
+            <div class="p-8">
+              <h3 class="text-2xl font-bold mb-4">Airline-and-Flight-Management-System</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-6">
+                use of database tools to create a full-stack airline
+                management system with data visualization features.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span
+                  class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-sm"
+                  >Oracle</span
+                >
+                <span
+                  class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-600 dark:text-cyan-300 rounded-full text-sm"
+                  >SQL</span
+                >
+                <span
+                  class="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-600 dark:text-pink-300 rounded-full text-sm"
+                  >Design</span
+                >
+              </div>
+              <div class="flex gap-4">
+                <a
+                  href="https://github.com/PLSQL-Capstone-Projects-AUCA-2024/MON_PENGUINS_Airline-Reservation-and-Flight-Management"
+                  class="text-purple-500 hover:text-purple-600 font-medium transition-colors duration-300"
+                >
+                  <i class="fas fa-external-link-alt mr-2"></i>GitHub
+                </a>
+                <a
+                  href="https://github.com/PLSQL-Capstone-Projects-AUCA-2024/MON_PENGUINS_Airline-Reservation-and-Flight-Management"
+                  class="text-purple-500 hover:text-purple-600 font-medium transition-colors duration-300"
+                >
+                  <i class="fab fa-github mr-2"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 lg:py-32 relative overflow-hidden">
+      <div class="absolute inset-0 gradient-mesh opacity-30"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl lg:text-6xl font-bold font-space text-gradient mb-4"
+          >
+            Skills & Expertise
+          </h2>
+          <p class="text-xl text-gray-600 dark:text-gray-400">
+            Technologies and tools I work with
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Frontend Skills -->
+          <div class="glass-morphism rounded-3xl p-8 hover-lift">
+            <div class="text-center mb-8">
+              <div
+                class="w-20 h-20 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-glow"
+              >
+                <i class="fas fa-palette text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-purple-500 mb-2">Frontend</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Crafting beautiful user interfaces
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-react text-3xl text-cyan-500 mb-2"></i>
+                <div class="text-sm font-medium">React</div>
+              </div>
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-vue text-3xl text-green-500 mb-2"></i>
+                <div class="text-sm font-medium">Vue.js</div>
+              </div>
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-js text-3xl text-yellow-500 mb-2"></i>
+                <div class="text-sm font-medium">JavaScript</div>
+              </div>
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-sass text-3xl text-pink-500 mb-2"></i>
+                <div class="text-sm font-medium">Sass</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend Skills -->
+          <div class="glass-morphism rounded-3xl p-8 hover-lift">
+            <div class="text-center mb-8">
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-glow"
+              >
+                <i class="fas fa-server text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-cyan-500 mb-2">Backend</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Building robust server solutions
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-node-js text-3xl text-green-500 mb-2"></i>
+                <div class="text-sm font-medium">Node.js</div>
+              </div>
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-python text-3xl text-blue-500 mb-2"></i>
+                <div class="text-sm font-medium">Python</div>
+              </div>
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fas fa-database text-3xl text-orange-500 mb-2"></i>
+                <div class="text-sm font-medium">MongoDB</div>
+              </div>
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fas fa-cloud text-3xl text-purple-500 mb-2"></i>
+                <div class="text-sm font-medium">AWS</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Skills -->
+          <div class="glass-morphism rounded-3xl p-8 hover-lift">
+            <div class="text-center mb-8">
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse-glow"
+              >
+                <i class="fas fa-paint-brush text-3xl text-white"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-pink-500 mb-2">Design</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Creating visual experiences
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-figma text-3xl text-purple-500 mb-2"></i>
+                <div class="text-sm font-medium">Figma</div>
+              </div>
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fab fa-adobe text-3xl text-red-500 mb-2"></i>
+                <div class="text-sm font-medium">Power BI</div>
+              </div>
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fas fa-magic text-3xl text-yellow-500 mb-2"></i>
+                <div class="text-sm font-medium">Framer</div>
+              </div>
+              <div
+                class="skill-card bg-white/50 dark:bg-gray-800/50 p-4 rounded-xl text-center hover-glow transition-all duration-300"
+              >
+                <i class="fas fa-mobile-alt text-3xl text-blue-500 mb-2"></i>
+                <div class="text-sm font-medium">Prototyping</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-20 lg:py-32 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden"
+    >
+      <div class="absolute inset-0 bg-black/20"></div>
+
+      <!-- Floating Elements -->
+      <div
+        class="absolute top-20 left-10 w-32 h-32 bg-purple-500/20 rounded-full animate-float"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-24 h-24 bg-cyan-500/20 rounded-full animate-float-delayed"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-6xl font-bold font-space text-white mb-4">
+            Let's Work Together
+          </h2>
+          <p class="text-xl text-gray-300">
+            Ready to bring your ideas to life? Let's create something amazing!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <!-- Contact Form -->
+          <div class="glass-morphism rounded-3xl p-8">
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    class="w-full p-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    class="w-full p-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                  />
+                </div>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  class="w-full p-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                />
+              </div>
+              <div>
+                <textarea
+                  rows="5"
+                  placeholder="Your Message"
+                  class="w-full p-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 resize-none"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full gradient-primary text-white py-4 rounded-xl font-semibold hover-lift transition-all duration-300"
+              >
+                Send Message
+                <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="space-y-8">
+            <div class="flex items-center space-x-6">
+              <div
+                class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center"
+              >
+                <i class="fas fa-map-marker-alt text-2xl text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold text-white mb-2">Location</h4>
+                <p class="text-gray-300">KIGALI, RWANDA</p>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-6">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center"
+              >
+                <i class="fas fa-envelope text-2xl text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold text-white mb-2">Email</h4>
+                <p class="text-gray-300">kezacardine66@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-6">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center"
+              >
+                <i class="fas fa-phone text-2xl text-white"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold text-white mb-2">Phone</h4>
+                <p class="text-gray-300">+250 789 480 421</p>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="pt-8">
+              <h4 class="text-xl font-semibold text-white mb-6">Follow Me</h4>
+              <div class="flex space-x-4">
+                <a
+                  href="https://www.linkedin.com/in/cardine-keza-1168aa329"
+                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a
+                  href="https://github.com/kezacardine/cardine-Kibondo"
+                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/_cardine._?igsh=MXVxMXQ0anJwMjU2Nw=="
+                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="#"
+                  class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+                >
+                  <i class="fab fa-snapchat"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p class="text-gray-400">
+              © 2025 KIBONDO Cardine. All rights reserved.
+            </p>
+          </div>
+          <div class="flex space-x-6">
+            <a
+              href="#home"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+              >About</a
+            >
+            <a
+              href="#projects"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // DOM Content Loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeThemeToggle();
+        initializeNavigation();
+        initializeAnimations();
+        initializeScrollEffects();
+      });
+
+      // Theme Toggle
+      function initializeThemeToggle() {
+        const themeToggle = document.getElementById("theme-toggle");
+        const currentTheme = localStorage.getItem("theme") || "light";
+
+        if (currentTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+
+        themeToggle.addEventListener("click", function () {
+          document.documentElement.classList.toggle("dark");
+          const theme = document.documentElement.classList.contains("dark")
+            ? "dark"
+            : "light";
+          localStorage.setItem("theme", theme);
+        });
+      }
+
+      // Navigation
+      function initializeNavigation() {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+              mobileMenu.classList.add("hidden");
+            }
+          });
+        });
+      }
+
+      // Animations
+      function initializeAnimations() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-fade-in-up");
+            }
+          });
+        }, observerOptions);
+
+        document
+          .querySelectorAll(".skill-card, .glass-morphism")
+          .forEach((el) => {
+            observer.observe(el);
+          });
+      }
+
+      // Scroll Effects
+      function initializeScrollEffects() {
+        window.addEventListener("scroll", function () {
+          const nav = document.querySelector("nav");
+          if (window.scrollY > 50) {
+            nav.classList.add("backdrop-blur-md");
+          } else {
+            nav.classList.remove("backdrop-blur-md");
+          }
+        });
+      }
+
+      // Particle animation on mouse move
+      document.addEventListener("mousemove", function (e) {
+        const particles = document.querySelectorAll(".particle");
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        particles.forEach((particle, index) => {
+          const speed = (index + 1) * 0.5;
+          const xOffset = (x - 0.5) * speed * 20;
+          const yOffset = (y - 0.5) * speed * 20;
+
+          particle.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+        });
+      });
+
+      // Add loading animation
+      window.addEventListener("load", function () {
+        document.body.classList.add("loaded");
+      });
+    </script>
+  </body>
+</html>
